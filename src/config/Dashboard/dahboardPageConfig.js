@@ -1,12 +1,15 @@
 const dashboardPageConfig = {
   content: {
-    title: "Dashboard",
+    title: "GIS Dashboard",
     subtitle:
       "Welcome to the GIS dashboard. This page is currently set up as the base entry point for the application and will later host summary widgets, map previews, analytics panels, and spatial reporting components.",
   },
   styles: {
     pageRoot: {
       minHeight: "100vh",
+      height: "100vh",
+      width: "100%",
+      overflow: "hidden", // prevent outer overflow
       background:
         "linear-gradient(180deg, #0a0a0a 0%, #111111 40%, #161616 100%)",
       color: "#ffffff",

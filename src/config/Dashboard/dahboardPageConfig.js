@@ -7,22 +7,31 @@ const dashboardPageConfig = {
   styles: {
     pageRoot: {
       minHeight: "100vh",
-      bgcolor: "grey.50",
+      background:
+        "linear-gradient(180deg, #0a0a0a 0%, #111111 40%, #161616 100%)",
+      color: "#ffffff",
     },
+
     contentWrapper: {
-      py: { xs: 3, sm: 4, md: 5 },
+      py: { xs: 4, sm: 5, md: 6 },
     },
+
     heroCard: {
       p: { xs: 3, sm: 4, md: 5 },
       borderRadius: 3,
-      boxShadow: 1,
+      backgroundColor: "#141414",
+      border: "1px solid rgba(255,255,255,0.08)",
+      boxShadow: "0 12px 32px rgba(0,0,0,0.35)",
     },
+
     pageTitle: {
       fontWeight: 700,
       mb: 1,
+      color: "#ffffff",
     },
+
     pageSubtitle: {
-      color: "text.secondary",
+      color: "rgba(255,255,255,0.72)",
       maxWidth: 720,
     },
   },

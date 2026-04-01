@@ -34,7 +34,7 @@ const navbarConfig = {
         xs: "100%",
         sm: "90%",
         md: "85%",
-        lg: "75%",
+        lg: "95%",
       },
       bgcolor: "black",
       color: "rgba(253,212,153)",

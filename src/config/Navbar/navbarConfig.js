@@ -1,5 +1,3 @@
-import { color } from "@mui/system";
-
 const navbarConfig = {
   branding: {
     title: "Elvis Matu",
@@ -19,6 +17,8 @@ const navbarConfig = {
   styles: {
     outerWrapper: {
       width: "100%",
+      maxWidth: "100%",
+      boxSizing: "border-box",
       display: "flex",
       justifyContent: "center",
       pt: { xs: 2, sm: 2.5, md: 3 },
@@ -27,6 +27,8 @@ const navbarConfig = {
       top: 0,
       zIndex: 1200,
       backgroundColor: "transparent",
+      overflowX: "hidden",
+      flexShrink: 0,
     },
 
     navShell: {
@@ -34,24 +36,31 @@ const navbarConfig = {
         xs: "100%",
         sm: "90%",
         md: "85%",
-        lg: "95%",
+        lg: "85%",
       },
+      maxWidth: "100%",
+      boxSizing: "border-box",
       bgcolor: "black",
       color: "rgba(253,212,153)",
       boxShadow: 4,
       border: "1px solid",
       borderColor: "rgba(255,255,255,0.08)",
       overflow: "hidden",
+      flexShrink: 0,
       clipPath:
         "polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0% calc(100% - 18px), 0% 18px)",
     },
 
     toolbar: {
+      width: "100%",
+      boxSizing: "border-box",
       minHeight: { xs: 64, md: 72 },
       px: { xs: 2, sm: 3, md: 4 },
       display: "flex",
+      alignItems: "center",
       justifyContent: "space-between",
       gap: 2,
+      overflow: "hidden",
     },
 
     brandContainer: {
@@ -59,6 +68,8 @@ const navbarConfig = {
       alignItems: "center",
       gap: 1.5,
       minWidth: 0,
+      flex: 1,
+      overflow: "hidden",
     },
 
     brandIconBox: {
@@ -77,28 +88,38 @@ const navbarConfig = {
     brandTextBox: {
       minWidth: 0,
       color: "white",
+      overflow: "hidden",
     },
 
     titleText: {
       fontWeight: 700,
       lineHeight: 1.2,
       fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
     },
 
     subtitleText: {
       display: { xs: "none", sm: "block" },
       opacity: 0.85,
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
     },
 
     desktopNavContainer: {
       display: { xs: "none", md: "flex" },
       alignItems: "center",
+      flexShrink: 0,
+      minWidth: "fit-content",
     },
 
     desktopNavStack: {
       direction: "row",
       spacing: 1,
       alignItems: "center",
+      flexWrap: "nowrap",
     },
 
     desktopNavButton: {
@@ -107,6 +128,8 @@ const navbarConfig = {
       textTransform: "none",
       fontWeight: 500,
       fontSize: "0.95rem",
+      whiteSpace: "nowrap",
+      minWidth: "fit-content",
       clipPath:
         "polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px)",
       "&.active": {
@@ -119,12 +142,14 @@ const navbarConfig = {
 
     mobileMenuButton: {
       display: { xs: "inline-flex", md: "none" },
+      flexShrink: 0,
     },
 
     drawer: {
       display: { xs: "block", md: "none" },
       "& .MuiDrawer-paper": {
         width: 280,
+        maxWidth: "100%",
         boxSizing: "border-box",
       },
     },

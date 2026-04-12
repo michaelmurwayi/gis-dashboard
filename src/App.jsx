@@ -1,10 +1,9 @@
+// src/App.jsx
 import { useRoutes } from "react-router-dom";
 import { routesConfig } from "./app/config/routesConfig";
-import DashboardPage from "./features/dashboard/pages/DashboardPage";
 
 function App() {
-  const element = useRoutes(routesConfig);
-  return <DashboardPage />;
+  return useRoutes(routesConfig);
 }
 
-export default App;
+export default App; // <-- must be default export

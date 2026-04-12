@@ -4,6 +4,6 @@ export const routesConfig = [
   {
     path: "/",
     name: "Dashboard",
-    component: DashboardPage,
+    element: <DashboardPage />, // ✅ correct
   },
 ];

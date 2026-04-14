@@ -5,6 +5,8 @@ import dashboardPageConfig from "../../../config/Dashboard/dashboardPageConfig";
 import navbarConfig from "../../../config/Navbar/navbarConfig";
 import MapPanel from "../../../components/map/MapPanel";
 import PolygonControl from "../../../components/polygon/polygonControl";
+import InfoCard from "../../../components/card/InfoCard";
+import { cardsConfig } from "../../../config/Card/cardsConfig";
 
 function DashboardPage() {
   const { content, styles } = dashboardPageConfig;
@@ -17,9 +19,9 @@ function DashboardPage() {
         flexDirection: "column",
         height: "100vh",
         width: "100vw",
-        left: "0px",
         position: "absolute",
-        top: "0px",
+        top: 0,
+        left: 0,
         background:
           "linear-gradient(180deg, #0a0a0a 0%, #111111 40%, #161616 100%)",
         color: "#fff",
@@ -36,19 +38,19 @@ function DashboardPage() {
           overflow: "hidden",
           px: { xs: 2, md: 4 },
           py: 3,
-          width: "100%",
           boxSizing: "border-box",
         }}
       >
         <Grid
           container
-          spacing={3}
+          spacing={1}   // ✅ FIX: reduced from 3 → 1 (tight spacing)
           sx={{
             flex: 1,
             height: "100%",
             width: "100%",
             m: 0,
             flexWrap: { xs: "wrap", md: "nowrap" },
+            alignItems: "stretch",
           }}
         >
           {/* Left Sidebar */}
@@ -65,8 +67,6 @@ function DashboardPage() {
             <Paper
               sx={{
                 flex: 1,
-                width: "100%",
-                minWidth: 0,
                 borderRadius: 3,
                 backgroundColor: "#1a1a1a",
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -85,7 +85,7 @@ function DashboardPage() {
           <Grid
             item
             xs={12}
-            md={6}
+            md={5}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -99,7 +99,7 @@ function DashboardPage() {
                 borderRadius: 3,
                 overflow: "hidden",
                 display: "flex",
-                width: "100%",
+                width: "100%",   // ✅ FIX: removed 90%
                 minWidth: 0,
               }}
             >
@@ -111,9 +111,10 @@ function DashboardPage() {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
             sx={{
               display: "flex",
+              flexDirection: "column",
               height: "100%",
               minWidth: 0,
             }}
@@ -121,19 +122,26 @@ function DashboardPage() {
             <Paper
               sx={{
                 flex: 1,
-                width: "100%",
-                minWidth: 0,
                 borderRadius: 3,
-                backgroundColor: "#1a1a1a",
+                backgroundColor: "#000",
                 border: "1px solid rgba(255,255,255,0.08)",
-                color: "white",
-                p: 2.5,
+                p: 2,
                 display: "flex",
                 flexDirection: "column",
-                overflow: "hidden",
+                gap: 2,
+                width: "100%",
               }}
             >
-              Polygon Controls / Info
+              {cardsConfig.map((card) => (
+                <InfoCard
+                  key={card.id}
+                  header={card.header}
+                  icon={card.icon}
+                  text={card.text}
+                  bgImage={card.bgImage}
+                  color={card.color}
+                />
+              ))}
             </Paper>
           </Grid>
         </Grid>

@@ -7,6 +7,7 @@ import MapPanel from "../../../components/map/MapPanel";
 import PolygonControl from "../../../components/polygon/polygonControl";
 import InfoCard from "../../../components/card/InfoCard";
 import { cardsConfig } from "../../../config/Card/cardsConfig";
+import RainfallGraph from "../../../components/graph/RainfallGraph";
 
 function DashboardPage() {
   const { content, styles } = dashboardPageConfig;
@@ -105,6 +106,15 @@ function DashboardPage() {
             >
               <MapPanel />
             </Paper>
+            <RainfallGraph 
+              sx={{
+                mt: 5,
+                borderRadius: 3,
+                backgroundColor: "#1a1a1a",
+                color: "#fff",
+                p: 2,
+              }}
+            />
           </Grid>
 
           {/* Right Sidebar */}
@@ -123,8 +133,7 @@ function DashboardPage() {
               sx={{
                 flex: 1,
                 borderRadius: 3,
-                backgroundColor: "#000",
-                border: "1px solid rgba(255,255,255,0.08)",
+                backgroundColor: "rgba(255,255,255,0)",
                 p: 2,
                 display: "flex",
                 flexDirection: "column",

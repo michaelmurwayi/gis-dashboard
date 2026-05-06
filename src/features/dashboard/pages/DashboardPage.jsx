@@ -7,7 +7,7 @@ import MapPanel from "../../../components/map/MapPanel";
 import PolygonControl from "../../../components/polygon/polygonControl";
 import InfoCard from "../../../components/card/InfoCard";
 import { cardsConfig } from "../../../config/Card/cardsConfig";
-import RainfallGraph from "../../../components/graph/RainfallGraph";
+import GraphCard from "../../../components/graph/Graph";
 
 function DashboardPage() {
   const { content, styles } = dashboardPageConfig;
@@ -44,7 +44,7 @@ function DashboardPage() {
       >
         <Grid
           container
-          spacing={1}   // ✅ FIX: reduced from 3 → 1 (tight spacing)
+          spacing={1}
           sx={{
             flex: 1,
             height: "100%",
@@ -55,16 +55,7 @@ function DashboardPage() {
           }}
         >
           {/* Left Sidebar */}
-          <Grid
-            item
-            xs={12}
-            md={3}
-            sx={{
-              display: "flex",
-              height: "100%",
-              minWidth: 0,
-            }}
-          >
+          <Grid item xs={12} md={3} sx={{ display: "flex", minWidth: 0 }}>
             <Paper
               sx={{
                 flex: 1,
@@ -75,14 +66,13 @@ function DashboardPage() {
                 p: 2.5,
                 display: "flex",
                 flexDirection: "column",
-                overflow: "hidden",
               }}
             >
               <PolygonControl />
             </Paper>
           </Grid>
 
-          {/* Map Panel */}
+          {/* Map + Graphs */}
           <Grid
             item
             xs={12}
@@ -92,53 +82,52 @@ function DashboardPage() {
               flexDirection: "column",
               height: "100%",
               minWidth: 0,
+              gap: 1,
             }}
           >
+            {/* Map */}
             <Paper
               sx={{
-                flex: 1,
+                flex: 3,
                 borderRadius: 3,
                 overflow: "hidden",
                 display: "flex",
-                width: "100%",   // ✅ FIX: removed 90%
                 minWidth: 0,
               }}
             >
               <MapPanel />
             </Paper>
-            <RainfallGraph 
+
+            {/* Graphs side by side */}
+            <Box
               sx={{
-                mt: 5,
-                borderRadius: 3,
-                backgroundColor: "#1a1a1a",
-                color: "#fff",
-                p: 2,
+                flex: 2,
+                display: "flex",
+                gap: 1,
+                minHeight: 0,
               }}
-            />
+            >
+              <Box sx={{ flex: 1 }}>
+                <GraphCard graphKey="rainfallGraph" color="#4caf50" />
+              </Box>
+
+              <Box sx={{ flex: 1 }}>
+                <GraphCard graphKey="temperatureGraph" color="#ff9800" />
+              </Box>
+            </Box>
           </Grid>
 
           {/* Right Sidebar */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-              minWidth: 0,
-            }}
-          >
+          <Grid item xs={12} md={4} sx={{ display: "flex", minWidth: 0 }}>
             <Paper
               sx={{
                 flex: 1,
                 borderRadius: 3,
-                backgroundColor: "rgba(255,255,255,0)",
+                backgroundColor: "transparent",
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
-                width: "100%",
               }}
             >
               {cardsConfig.map((card) => (
